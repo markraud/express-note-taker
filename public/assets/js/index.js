@@ -4,13 +4,35 @@ let saveNoteBtn;
 let newNoteBtn;
 let noteList;
 
-if (window.location.pathname === '/notes') {
-  noteTitle = document.querySelector('.note-title');
-  noteText = document.querySelector('.note-textarea');
-  saveNoteBtn = document.querySelector('.save-note');
-  newNoteBtn = document.querySelector('.new-note');
-  noteList = document.querySelectorAll('.list-container .list-group');
-}
+// I added this part:
+// pulling in express
+const express = require('express');
+const path = require('path');
+
+const app = express();
+const PORT = 8080;
+
+// Sets up the Express app to handle data parsing
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+
+//Routes
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
+app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, 'notes.html')));
+
+// Listener - I think this might need to be put at the bottom 
+app.listen(PORT, () => console.log(`Server listening on: http://localhost:${PORT}`));
+
+// where the provided logic starts 
+
+// if (window.location.pathname === '/notes') {
+//   noteTitle = document.querySelector('.note-title');
+//   noteText = document.querySelector('.note-textarea');
+//   saveNoteBtn = document.querySelector('.save-note');
+//   newNoteBtn = document.querySelector('.new-note');
+//   noteList = document.querySelectorAll('.list-container .list-group');
+// }
 
 // Show an element
 const show = (elem) => {
@@ -176,5 +198,7 @@ if (window.location.pathname === '/notes') {
   noteTitle.addEventListener('keyup', handleRenderSaveBtn);
   noteText.addEventListener('keyup', handleRenderSaveBtn);
 }
+
+
 
 getAndRenderNotes();
