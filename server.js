@@ -25,6 +25,11 @@ app.use(express.json());
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, '/index.html')));
 app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, './public/notes.html')));
 
+  // api Routes
+app.get('/api/notes', (req, res) => res.sendFile(path.join(__dirname, './db/db.json')));
+
+app.get('*', (req, res) => res.sendFile(path.join(__dirname, './public/index.html')));
+
 // Listener
 app.listen(PORT, () => console.log(`Server listening on: http://localhost:${PORT}`));
 
