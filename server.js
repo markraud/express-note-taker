@@ -33,17 +33,16 @@ app.get('/', (req, res) => res.sendFile(path.join(__dirname, '/index.html')));
 app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, './public/notes.html')));
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, './public/index.html')));
 
-//when clicking save button this saves note into db.json
+//post to saves note into db.json
 app.post('/api/notes', (req, res) => {
   let noteBody = req.body;
   noteBody.id = uuid.v4();  // use uuid to get a ID for every new note and add it to noteBody
-  // console.log(noteBody); 
   db.push(noteBody); 
-  fs.writeFileSync('./db/db.json', JSON.stringify(db), (err) =>  err ? console.error(err) : console.log('Success!'))
-  return noteBody;
-  // location.reload(true);
-  // getAndRenderNotes();
+  fs.writeFile('./db/db.json', JSON.stringify(db), 'utf8', (err) =>  err ? console.error(err) : console.log('Success!'));
+  return res.json(noteBody);
 });
+
+// put app.delete here
 
 // Listener
 app.listen(PORT, () => console.log(`Server listening on: http://localhost:${PORT}`));
