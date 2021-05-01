@@ -19,7 +19,7 @@
   * [Questions](#questions)
 
   ## Installation 
-  To install this on your own server 
+  To install the app on your own Node.js server follow these steps.
   1. copy contents of the repo to your server(which is running node.js)  
   2. run "npm init -y" 3. run "npm i express" 
   4. run "npm i uuid" 
