@@ -23,22 +23,20 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //Routes
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, '/index.html')));
-app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, './public/notes.html')));
 
   // api Routes
 app.get('/api/notes', (req, res) => res.sendFile(path.join(__dirname, './db/db.json')));
 
+// html routes 
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, '/index.html')));
+app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, './public/notes.html')));
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, './public/index.html')));
 
+//when clicking save button this saves note into db.json
 app.post('/api/notes', (req, res) => {
-  // const file = req.body;
-  // console.log(file);
-
   db.push(req.body);
-  // console.log(db);
-  // const data = JSON.stringify(db);
   fs.writeFileSync('./db/db.json', JSON.stringify(db), (err) =>  err ? console.error(err) : console.log('Success!'))
+  location.reload(true);
 });
 
 // Listener
