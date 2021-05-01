@@ -1,8 +1,9 @@
 const express = require('express');
-const apiRoutes = require('./routes/apiRoutes');
-const htmlRoutes = require('./routes/htmlRoutes');
+// const apiRoutes = require('./routes/apiRoutes');
+// const htmlRoutes = require('./routes/htmlRoutes');
 const fs = require('fs');
 let db = require('./db/db.json');
+const uuid = require('uuid');
 
 const app = express();
 const PORT = 3000;
@@ -24,7 +25,7 @@ app.use(express.json());
 
 //Routes
 
-  // api Routes
+// api Route
 app.get('/api/notes', (req, res) => res.sendFile(path.join(__dirname, './db/db.json')));
 
 // html routes 
@@ -34,9 +35,14 @@ app.get('*', (req, res) => res.sendFile(path.join(__dirname, './public/index.htm
 
 //when clicking save button this saves note into db.json
 app.post('/api/notes', (req, res) => {
-  db.push(req.body);
+  let noteBody = req.body;
+  noteBody.id = uuid.v4();  // use uuid to get a ID for every new note and add it to noteBody
+  // console.log(noteBody); 
+  db.push(noteBody); 
   fs.writeFileSync('./db/db.json', JSON.stringify(db), (err) =>  err ? console.error(err) : console.log('Success!'))
-  location.reload(true);
+  return noteBody;
+  // location.reload(true);
+  // getAndRenderNotes();
 });
 
 // Listener
