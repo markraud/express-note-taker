@@ -28,7 +28,7 @@
  
   The application is currently installed and running via Heroku at: 
   
-  [Link to Note Taker](https://www.whateverthesiteis.com)
+  [Link to Note Taker](https://sheltered-brushlands-36943.herokuapp.com/)
 
   ## Usage 
   Access the website.  Click on the "Get Started" button.  In the panel on the right enter in the note title and note text then click on the save button that appears in the uppper right corner of the screen. The app will save the note in the "db.json" file and display it in the panel on the left.   From here you can click on the pen icon in the uppper right corner to enter in a new note or display previously saved notes by clicking on them in the left panel.  
@@ -49,7 +49,7 @@
   You can access my GitHub profile throught the following link.
   [My GitHub](https://github.com/markraud)
 
-  [Link to GitHub Repository](https://github.com/markraud/express-note-taker)
+  [GitHub Repository for Note Taker App](https://github.com/markraud/express-note-taker)
 
   Please email with any questions.
   [markraud@hotmail.com](mailto:markraud@hotmail.com)
