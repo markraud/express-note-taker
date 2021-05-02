@@ -36,6 +36,10 @@
   ## Usage 
   Access the website.  Click on the "Get Started" button.  In the panel on the right enter the note title and text.  Then click on the save button that appears in the upper right corner of the screen. The app will save the note in the "db.json" file and display it in the panel on the left.   From here you can click on the 'pen icon' in the uppper right corner to enter in a new note or display previously saved notes by clicking on them in the left panel.  
 
+  ![Screenshot](./img/Screenshot1.png "Screenshot")
+
+  ![Screenshot](./img/Screenshot2.png "Screenshot")
+
   ## License 
   This application is covered by the MIT license.  Click the link for more information. 
 
