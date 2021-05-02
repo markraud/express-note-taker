@@ -1,25 +1,21 @@
 const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000;
+const path = require('path');
 const fs = require('fs');
 const uuid = require('uuid');
 // const apiRoutes = require('./routes/apiRoutes');
 // const htmlRoutes = require('./routes/htmlRoutes');
 // let db = require('./db/db.json');
-const path = require('path');
-const app = express();
-const PORT = process.env.PORT || 3000;
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-// // connect to both route files using app.use
+// To make more modular - connect to both routes files using app.use
 // app.use('/api', apiRoutes);
 // app.use('/', htmlRoutes);
-
-// Sets up the Express app to handle data parsing
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 
 // api routes
 app.get('/api/notes', (req, res) => res.sendFile(path.join(__dirname, './db/db.json')));
@@ -54,7 +50,7 @@ app.delete('/api/notes/:id', (req, res) => {
 });
 
 // html routes 
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, '/index.html')));
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, './public/index.html')));
 app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, './public/notes.html')));
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, './public/index.html')));
 
