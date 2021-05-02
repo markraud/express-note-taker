@@ -1,4 +1,4 @@
-# Title: Note Taker using Express.js
+# Title: Note Taker
 
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   ## Descrption: 
@@ -14,13 +14,11 @@
 
   * [Contributing](#contributing)
 
-  * [Tests](#tests)
-
   * [Questions](#questions)
 
   * [Links](#links)
 
-  * [Issues](#issues)
+  * [Plans](#plans)
 
   ## Installation 
   To install the app on your own Node.js server follow these steps.
@@ -47,9 +45,6 @@
   ## Contributing 
   Mark Raudenbush
 
-  ## Tests
-  minimal testing performed
-
   ## Questions
   Please email with any questions.
   [markraud@hotmail.com](mailto:markraud@hotmail.com)
@@ -62,8 +57,6 @@
 
   [Note Taker App Deployed via Heroku](https://sheltered-brushlands-36943.herokuapp.com/)
 
-  ## Issues
-  Still having issues with the new note(pen icon) functionality.  If you previously viewed an existing note and then try to click on the new note(pen icon) it clears the right panel but will not allow you to edit/enter a new note. 
-
-  Future work will also need to be performed to make this program more modular.  Ran out of time. 
+  ## Plans
+  Future work will need to be performed to make this program more modular.  Ran out of time. 
 
