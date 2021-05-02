@@ -58,18 +58,18 @@ app.post('/api/notes', (req, res) => {
 // });
 
 // delete route
-app.delete('/api/notes/', (req, res) => {
+app.delete('/api/notes/:id', (req, res) => {
   fs.readFile('./db/db.json', 'utf8', (err, data) => {
-    console.log(req.params.id);
+    // console.log(req.params.id);
     let notesFile = JSON.parse(data);
     console.log(notesFile);
-    // let newFile = notesFile.filter(item => {
-    //   return item.id !== req.params.id
-    // })
-    // res.json(newFile);
-    // fs.writeFile('./db/db.json', JSON.stringify(newFile), 'utf8', (err) => {
-    //   if (err) throw err;
-    // })
+    let newFile = notesFile.filter(item => {
+      return item.id !== req.params.id
+    })
+    res.json(newFile);
+    fs.writeFile('./db/db.json', JSON.stringify(newFile), 'utf8', (err) => {
+      if (err) throw err;
+    })
   });
 });
 
